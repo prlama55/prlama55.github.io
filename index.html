@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>Demo Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input.form-control {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .navbar {
+            background-color: #87CEEB; /* Blue Color */
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .account-number {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+        My Bank
+    </a>
+    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M19,2H5A2,2,0,0,0,3,4V18a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V4A2,2,0,0,0,19,2ZM7,4H17V6H7Zm0,14V10H17v8Zm6-5h2v1H13Zm-4,0h2v1H9Zm-4,0h2v1H5Z" fill="#fff"/>
+    </svg>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item account-number" id="12345">UserId: 12345</li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Bank Account Registration</h2>
+    <form>
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" class="form-control" id="fullname" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        </div>
+        <div class="container credit-card-section">
+            <div class="row">
+                <div class="col-12"> <h2>Personalize Card</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="uuid" name="uuid" value="123456">
+        <input type="hidden" id="banknumber" name="banknumber" value="cid0123131">
+        <input type="hidden" name="cardImgNum" cardImgNum="1234567" value="1234567">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<script charset="UTF-8" ooc-app-script src='https://assets-stage.onlyonecard.jp/common/onlyonecard.js' oocId='ooc12081701679173334'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('cardUpload.completed', function(event) {
+    const detail = event.detail;
+    const clientId = detail.clientId; // 顧客ID
+    const uploadId = detail.uploadId; // 画像ID
+    console.log(detail)
+    // ここに必要な処理を記述する
+    alert('完了イベントの発火です。デザインアップロードが完了です');
+  });
+</script>
+</body>
+
+</html>
